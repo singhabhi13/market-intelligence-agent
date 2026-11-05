@@ -1,0 +1,25 @@
+# Configurable trading rules (BR13). Edit anytime -- no code change needed.
+# Available variables in expressions (per symbol, latest values):
+#   close, rsi, sma_fast, sma_long, sma_fast_prev, sma_long_prev,
+#   pct_change_1d, volume, high_52w, low_52w
+#
+# A symbol is BUY if ANY buy expression is True (and no sell fires),
+# SELL if ANY sell expression is True, otherwise HOLD.
+
+indicators:
+  rsi_period: 14
+  sma_fast_period: 20
+  sma_long_period: 50
+
+rules:
+  buy:
+    - "rsi < 35"                      # oversold
+    - "sma_fast > sma_long and sma_fast_prev <= sma_long_prev"  # golden cross
+  sell:
+    - "rsi > 70"                      # overbought
+    - "sma_fast < sma_long and sma_fast_prev >= sma_long_prev"  # death cross
+    - "close < low_52w * 1.02"         # breaking down near 52w low
+
+risk:
+  stop_loss_pct: 8
+  take_profit_pct: 20

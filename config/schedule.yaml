@@ -1,0 +1,6 @@
+# Documentation of intended schedules. Actual cron lives in
+# .github/workflows/scheduled-run.yml. Times in UTC.
+schedules:
+  us_premarket:   "30 12 * * 1-5"   # 12:30 UTC ~ 08:00 ET pre-market
+  us_postmarket:  "30 21 * * 1-5"   # 21:30 UTC ~ after US close
+  india_eod:      "30 10 * * 1-5"   # 10:30 UTC ~ after NSE close (16:00 IST)

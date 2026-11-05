@@ -1,0 +1,14 @@
+# Stocks to track. Edit freely anytime.
+# US tech focus (priority), India (.NS = NSE), and global as needed.
+universe:
+  # US / NASDAQ tech
+  - AAPL
+  - NVDA
+  - MSFT
+  - GOOGL
+  - AMZN
+  - META
+  # India (NSE) - append .NS
+  - TCS.NS
+  - INFY.NS
+  # Add/remove tickers here. Yahoo Finance symbols.
