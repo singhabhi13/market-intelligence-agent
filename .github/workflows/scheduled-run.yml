@@ -1,0 +1,39 @@
+name: Market Brief
+
+on:
+  schedule:
+    - cron: '30 12 * * 1-5'   # US pre-market (12:30 UTC ~ 08:00 ET)
+    - cron: '30 21 * * 1-5'   # US post-market (21:30 UTC ~ after close)
+    - cron: '30 10 * * 1-5'   # India EOD (10:30 UTC ~ after NSE close)
+  workflow_dispatch:            # allow manual trigger
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m src.main
+
+      - name: Upload signals database
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: signals-sqlite
+          path: data/signals.sqlite
+          retention-days: 30
