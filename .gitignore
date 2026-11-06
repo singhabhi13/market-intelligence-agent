@@ -6,9 +6,7 @@ __pycache__/
 *.pyo
 
 # Data
-data/
-*.sqlite
-*.db
+# data/signals.sqlite is committed by CI for the dashboard
 
 # OS
 .DS_Store
