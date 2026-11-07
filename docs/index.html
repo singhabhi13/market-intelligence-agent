@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Intelligence Agent</title>
+<style>
+  :root {
+    --bg: #0b1220; --panel: #111a2e; --border: #1e2a44;
+    --text: #e2e8f0; --muted: #94a3b8;
+    --buy: #22c55e; --sell: #ef4444; --hold: #64748b;
+    --accent: #38bdf8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px 16px 48px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.5;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  h2 { font-size: 1.1rem; margin: 32px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3, h4 { margin: 16px 0 8px; }
+  .muted { color: var(--muted); font-size: 0.85em; }
+  .foot { margin-top: 40px; font-size: 0.8rem; color: var(--muted); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { background: #1a2438; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+
+  .brief {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px;
+  }
+  .brief p { margin: 8px 0; }
+  .brief ul { margin: 8px 0; padding-left: 20px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-left: 4px solid var(--hold); border-radius: 10px; padding: 12px 14px;
+  }
+  .card.buy { border-left-color: var(--buy); }
+  .card.sell { border-left-color: var(--sell); }
+  .card-sym { font-weight: 700; font-size: 1.05rem; }
+  .card-sig { font-weight: 600; margin-top: 2px; }
+  .card.buy .card-sig { color: var(--buy); }
+  .card.sell .card-sig { color: var(--sell); }
+  .card-meta { color: var(--muted); font-size: 0.8rem; margin-top: 4px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 8px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; }
+  td.rationale { color: var(--muted); font-size: 0.84rem; }
+  td.ts { white-space: nowrap; color: var(--muted); font-size: 0.82rem; }
+  tr:last-child td { border-bottom: none; }
+
+  .pill {
+    display: inline-block; padding: 1px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+    background: #1a2438; color: var(--muted);
+  }
+  .pill.buy { background: rgba(34,197,94,.15); color: var(--buy); }
+  .pill.sell { background: rgba(239,68,68,.15); color: var(--sell); }
+
+  details.sym {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 12px;
+  }
+  details.sym summary { cursor: pointer; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .charts { display: flex; gap: 24px; flex-wrap: wrap; margin: 12px 0 4px; }
+  .chart-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 2px; }
+  .spark { background: #0d1526; border-radius: 6px; }
+
+  .news { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 12px 20px; }
+  .news ul { margin: 0; padding-left: 18px; }
+  .news li { margin: 7px 0; }
+
+  @media (max-width: 640px) {
+    .charts { gap: 12px; }
+    body { padding: 16px 10px 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📈 Market Intelligence &amp; Signals</h1>
+  <div class="muted">Last run: 2026-10-29 18:34:50 UTC · Auto-updated by GitHub Actions</div>
+
+  <h2>🤖 Latest Brief</h2>
+  <div class="brief">
+    <div class="muted" style="margin-bottom:8px">Generated 2026-10-29 18:34:50 UTC</div>
+    <h3><strong>Market Intelligence Brief: Swing Trading Report</strong></h3>
+
+<h4><strong>Market Sentiment</strong></h4>
+<p>The market is currently wrestling with &quot;AI CapEx Fatigue.&quot; While the broader U.S. economy remains resilient (GDP +3.4%), tech sentiment is jittery as investors shift from valuing potential AI capacity to demanding immediate profitability. The focus is squarely on high cash-burn metrics and cooling capex projections from hyperscalers.</p>
+
+<h4><strong>Key Catalysts</strong></h4>
+<ul>
+<li>  <strong>AI Spending Skepticism:</strong> Google and Microsoft slowing capex forecasts and the 25% plunge in ServiceNow signal a broader repricing of the &quot;AI boom.&quot;</li>
+<li>  <strong>Macro Stability:</strong> The ECB held rates at 2.5%, while domestic focus remains on the Fed&#x27;s stance, with potential for further hikes keeping rate-sensitive tech stocks under pressure.</li>
+<li>  <strong>Google Specifics:</strong> GOOGL is under heavy technical and fundamental pressure following a 13% crash; market sentiment is extremely bearish, potentially creating an oversold vacuum.</li>
+</ul>
+
+<h4><strong>Actionable Takeaways</strong></h4>
+
+<p><strong>Current Signals:</strong></p>
+<ul>
+<li>  <strong>BUY: GOOGL</strong> – Triggers (RSI &lt; 35) met. <em>Note:</em> Despite the negative headlines, the RSI signal suggests an oversold bounce. Exercise caution; wait for consolidation before entering.</li>
+<li>  <strong>BUY: INFY.NS</strong> – Bullish crossover detected (SMA fast &gt; SMA long). Technical momentum favors a long position.</li>
+<li>  <strong>SELL: TCS.NS</strong> – Triggered (Close &lt; 52w low * 1.02). Trend breakdown; protect capital and exit.</li>
+<li>  <strong>HOLD:</strong> AAPL, NVDA, MSFT, AMZN, META – Maintain current positions; volatility remains elevated.</li>
+</ul>
+
+<p><strong>Analyst Note:</strong></p>
+<p>Avoid &quot;catching falling knives&quot; in the AI space until the post-earnings volatility in mega-caps stabilizes. Prioritize the INFY.NS momentum play, as it is technically decoupled from the current U.S. tech-capex selloff. Monitor AMZN’s post-bell earnings closely, as they will serve as the final verdict on the sector’s near-term outlook.</p>
+
+<p><strong><em>Disclaimer:</strong> This report is for informational purposes only and does not constitute financial advice.</em></p>
+  </div>
+
+  <h2>🎯 Latest Signals</h2>
+  <div class="cards">
+        <div class="card hold">
+          <div class="card-sym">AAPL</div>
+          <div class="card-sig">HOLD</div>
+          <div class="card-meta">RSI 62.4 · 349.99</div>
+        </div>
+        <div class="card hold">
+          <div class="card-sym">AMZN</div>
+          <div class="card-sig">HOLD</div>
+          <div class="card-meta">RSI 41.0 · 244.14</div>
+        </div>
+        <div class="card buy">
+          <div class="card-sym">GOOGL</div>
+          <div class="card-sig">BUY</div>
+          <div class="card-meta">RSI 21.8 · 281.39</div>
+        </div>
+        <div class="card buy">
+          <div class="card-sym">INFY.NS</div>
+          <div class="card-sig">BUY</div>
+          <div class="card-meta">RSI 55.4 · n/a</div>
+        </div>
+        <div class="card hold">
+          <div class="card-sym">META</div>
+          <div class="card-sig">HOLD</div>
+          <div class="card-meta">RSI 35.1 · 624.96</div>
+        </div>
+        <div class="card hold">
+          <div class="card-sym">MSFT</div>
+          <div class="card-sig">HOLD</div>
+          <div class="card-meta">RSI 53.7 · 528.07</div>
+        </div>
+        <div class="card hold">
+          <div class="card-sym">NVDA</div>
+          <div class="card-sig">HOLD</div>
+          <div class="card-meta">RSI 41.1 · 212.35</div>
+        </div>
+        <div class="card sell">
+          <div class="card-sym">TCS.NS</div>
+          <div class="card-sig">SELL</div>
+          <div class="card-meta">RSI 64.6 · n/a</div>
+        </div></div>
+  <table>
+    <thead><tr><th>Symbol</th><th>Signal</th><th>Close</th><th>RSI</th><th>SMA 20</th><th>SMA 50</th><th>Rationale</th></tr></thead>
+    <tbody><tr><td>AAPL</td><td><span class="pill hold">HOLD</span></td><td>349.99</td><td>62.4</td><td>341.59</td><td>332.40</td><td class='rationale'>No criteria met</td></tr><tr><td>AMZN</td><td><span class="pill hold">HOLD</span></td><td>244.14</td><td>41.0</td><td>254.97</td><td>254.68</td><td class='rationale'>No criteria met</td></tr><tr><td>GOOGL</td><td><span class="pill buy">BUY</span></td><td>281.39</td><td>21.8</td><td>336.97</td><td>340.19</td><td class='rationale'>Buy triggers: rsi &lt; 35</td></tr><tr><td>INFY.NS</td><td><span class="pill buy">BUY</span></td><td>n/a</td><td>55.4</td><td>1082.90</td><td>1082.60</td><td class='rationale'>Buy triggers: sma_fast &gt; sma_long and sma_fast_prev &lt;= sma_long_prev</td></tr><tr><td>META</td><td><span class="pill hold">HOLD</span></td><td>624.96</td><td>35.1</td><td>696.78</td><td>668.41</td><td class='rationale'>No criteria met</td></tr><tr><td>MSFT</td><td><span class="pill hold">HOLD</span></td><td>528.07</td><td>53.7</td><td>530.66</td><td>512.05</td><td class='rationale'>No criteria met</td></tr><tr><td>NVDA</td><td><span class="pill hold">HOLD</span></td><td>212.35</td><td>41.1</td><td>222.86</td><td>221.90</td><td class='rationale'>No criteria met</td></tr><tr><td>TCS.NS</td><td><span class="pill sell">SELL</span></td><td>n/a</td><td>64.6</td><td>2293.92</td><td>2245.92</td><td class='rationale'>Sell triggers: close &lt; low_52w * 1.02</td></tr></tbody>
+  </table>
+
+  <h2>📊 Signal History</h2>
+  
+        <details class="sym" open>
+          <summary>
+            <span class="pill hold">HOLD</span>
+            <strong>AAPL</strong>
+            <span class="muted">close 349.99 · RSI 62.4 · 8 runs</span>
+          </summary>
+          <div class="charts">
+            <div class="chart"><div class="chart-label">Close</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#38bdf8" stroke-width="2" points="32.9,44.0 63.7,4.8 94.6,4.3 125.4,4.1 156.3,4.4 187.1,4.1 218.0,4.0"/><circle cx="218.0" cy="4.0" r="3" fill="#38bdf8"/></svg></div>
+            <div class="chart"><div class="chart-label">RSI</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#a78bfa" stroke-width="2" points="32.9,44.0 63.7,5.3 94.6,4.6 125.4,4.2 156.3,4.8 187.1,4.2 218.0,4.0"/><circle cx="218.0" cy="4.0" r="3" fill="#a78bfa"/></svg></div>
+          </div>
+          <table>
+            <thead><tr><th>Time (UTC)</th><th>Signal</th><th>Close</th><th>RSI</th><th>Rationale</th></tr></thead>
+            <tbody><tr><td class='ts'>2026-10-29 18:34</td><td><span class="pill hold">HOLD</span></td><td>349.99</td><td>62.4</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>349.97</td><td>62.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>349.89</td><td>62.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:28</td><td><span class="pill hold">HOLD</span></td><td>349.97</td><td>62.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:26</td><td><span class="pill hold">HOLD</span></td><td>349.91</td><td>62.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:23</td><td><span class="pill hold">HOLD</span></td><td>349.81</td><td>62.2</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 15:00</td><td><span class="pill hold">HOLD</span></td><td>340.64</td><td>57.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 14:38</td><td><span class="pill hold">HOLD</span></td><td>n/a</td><td>n/a</td><td class='rationale'>No criteria met</td></tr></tbody>
+          </table>
+        </details>
+        <details class="sym" open>
+          <summary>
+            <span class="pill hold">HOLD</span>
+            <strong>AMZN</strong>
+            <span class="muted">close 244.14 · RSI 41.0 · 8 runs</span>
+          </summary>
+          <div class="charts">
+            <div class="chart"><div class="chart-label">Close</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#38bdf8" stroke-width="2" points="32.9,4.0 63.7,42.7 94.6,43.3 125.4,43.0 156.3,43.8 187.1,44.0 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#38bdf8"/></svg></div>
+            <div class="chart"><div class="chart-label">RSI</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#a78bfa" stroke-width="2" points="32.9,4.0 63.7,42.9 94.6,43.4 125.4,43.2 156.3,43.9 187.1,44.0 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#a78bfa"/></svg></div>
+          </div>
+          <table>
+            <thead><tr><th>Time (UTC)</th><th>Signal</th><th>Close</th><th>RSI</th><th>Rationale</th></tr></thead>
+            <tbody><tr><td class='ts'>2026-10-29 18:34</td><td><span class="pill hold">HOLD</span></td><td>244.14</td><td>41.0</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>244.13</td><td>41.0</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>244.22</td><td>41.0</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:28</td><td><span class="pill hold">HOLD</span></td><td>244.62</td><td>41.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:26</td><td><span class="pill hold">HOLD</span></td><td>244.49</td><td>41.2</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:23</td><td><span class="pill hold">HOLD</span></td><td>244.77</td><td>41.4</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 15:00</td><td><span class="pill hold">HOLD</span></td><td>263.89</td><td>58.4</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 14:38</td><td><span class="pill hold">HOLD</span></td><td>n/a</td><td>n/a</td><td class='rationale'>No criteria met</td></tr></tbody>
+          </table>
+        </details>
+        <details class="sym" open>
+          <summary>
+            <span class="pill buy">BUY</span>
+            <strong>GOOGL</strong>
+            <span class="muted">close 281.39 · RSI 21.8 · 8 runs</span>
+          </summary>
+          <div class="charts">
+            <div class="chart"><div class="chart-label">Close</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#38bdf8" stroke-width="2" points="32.9,4.0 63.7,44.0 94.6,44.0 125.4,43.9 156.3,44.0 187.1,44.0 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#38bdf8"/></svg></div>
+            <div class="chart"><div class="chart-label">RSI</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#a78bfa" stroke-width="2" points="32.9,4.0 63.7,44.0 94.6,44.0 125.4,44.0 156.3,44.0 187.1,44.0 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#a78bfa"/></svg></div>
+          </div>
+          <table>
+            <thead><tr><th>Time (UTC)</th><th>Signal</th><th>Close</th><th>RSI</th><th>Rationale</th></tr></thead>
+            <tbody><tr><td class='ts'>2026-10-29 18:34</td><td><span class="pill buy">BUY</span></td><td>281.39</td><td>21.8</td><td class='rationale'>Buy triggers: rsi &lt; 35</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill buy">BUY</span></td><td>281.40</td><td>21.8</td><td class='rationale'>Buy triggers: rsi &lt; 35</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill buy">BUY</span></td><td>281.40</td><td>21.8</td><td class='rationale'>Buy triggers: rsi &lt; 35</td></tr><tr><td class='ts'>2026-10-29 18:28</td><td><span class="pill buy">BUY</span></td><td>281.45</td><td>21.8</td><td class='rationale'>Buy triggers: rsi &lt; 35</td></tr><tr><td class='ts'>2026-10-29 18:26</td><td><span class="pill buy">BUY</span></td><td>281.37</td><td>21.8</td><td class='rationale'>Buy triggers: rsi &lt; 35</td></tr><tr><td class='ts'>2026-10-29 18:23</td><td><span class="pill buy">BUY</span></td><td>281.33</td><td>21.8</td><td class='rationale'>Buy triggers: rsi &lt; 35</td></tr><tr><td class='ts'>2026-10-20 15:00</td><td><span class="pill hold">HOLD</span></td><td>343.14</td><td>47.2</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 14:38</td><td><span class="pill hold">HOLD</span></td><td>n/a</td><td>n/a</td><td class='rationale'>No criteria met</td></tr></tbody>
+          </table>
+        </details>
+        <details class="sym" open>
+          <summary>
+            <span class="pill buy">BUY</span>
+            <strong>INFY.NS</strong>
+            <span class="muted">close n/a · RSI 55.4 · 8 runs</span>
+          </summary>
+          <div class="charts">
+            <div class="chart"><div class="chart-label">Close</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#38bdf8" stroke-width="2" points="32.9,44.0 63.7,4.0 94.6,4.0 125.4,4.0"/><circle cx="125.4" cy="4.0" r="3" fill="#38bdf8"/></svg></div>
+            <div class="chart"><div class="chart-label">RSI</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#a78bfa" stroke-width="2" points="32.9,4.0 63.7,23.1 94.6,23.1 125.4,23.1 156.3,44.0 187.1,44.0 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#a78bfa"/></svg></div>
+          </div>
+          <table>
+            <thead><tr><th>Time (UTC)</th><th>Signal</th><th>Close</th><th>RSI</th><th>Rationale</th></tr></thead>
+            <tbody><tr><td class='ts'>2026-10-29 18:34</td><td><span class="pill buy">BUY</span></td><td>n/a</td><td>55.4</td><td class='rationale'>Buy triggers: sma_fast &gt; sma_long and sma_fast_prev &lt;= sma_long_prev</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill buy">BUY</span></td><td>n/a</td><td>55.4</td><td class='rationale'>Buy triggers: sma_fast &gt; sma_long and sma_fast_prev &lt;= sma_long_prev</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill buy">BUY</span></td><td>n/a</td><td>55.4</td><td class='rationale'>Buy triggers: sma_fast &gt; sma_long and sma_fast_prev &lt;= sma_long_prev</td></tr><tr><td class='ts'>2026-10-29 18:28</td><td><span class="pill buy">BUY</span></td><td>1146.50</td><td>59.1</td><td class='rationale'>Buy triggers: sma_fast &gt; sma_long and sma_fast_prev &lt;= sma_long_prev</td></tr><tr><td class='ts'>2026-10-29 18:26</td><td><span class="pill buy">BUY</span></td><td>1146.50</td><td>59.1</td><td class='rationale'>Buy triggers: sma_fast &gt; sma_long and sma_fast_prev &lt;= sma_long_prev</td></tr><tr><td class='ts'>2026-10-29 18:23</td><td><span class="pill buy">BUY</span></td><td>1146.50</td><td>59.1</td><td class='rationale'>Buy triggers: sma_fast &gt; sma_long and sma_fast_prev &lt;= sma_long_prev</td></tr><tr><td class='ts'>2026-10-20 15:00</td><td><span class="pill hold">HOLD</span></td><td>1130.70</td><td>62.5</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 14:38</td><td><span class="pill hold">HOLD</span></td><td>n/a</td><td>n/a</td><td class='rationale'>No criteria met</td></tr></tbody>
+          </table>
+        </details>
+        <details class="sym" open>
+          <summary>
+            <span class="pill hold">HOLD</span>
+            <strong>META</strong>
+            <span class="muted">close 624.96 · RSI 35.1 · 8 runs</span>
+          </summary>
+          <div class="charts">
+            <div class="chart"><div class="chart-label">Close</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#38bdf8" stroke-width="2" points="32.9,4.0 63.7,43.1 94.6,43.5 125.4,43.2 156.3,43.7 187.1,43.6 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#38bdf8"/></svg></div>
+            <div class="chart"><div class="chart-label">RSI</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#a78bfa" stroke-width="2" points="32.9,4.0 63.7,42.2 94.6,43.0 125.4,42.5 156.3,43.3 187.1,43.3 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#a78bfa"/></svg></div>
+          </div>
+          <table>
+            <thead><tr><th>Time (UTC)</th><th>Signal</th><th>Close</th><th>RSI</th><th>Rationale</th></tr></thead>
+            <tbody><tr><td class='ts'>2026-10-29 18:34</td><td><span class="pill hold">HOLD</span></td><td>624.96</td><td>35.1</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>625.59</td><td>35.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>625.56</td><td>35.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:28</td><td><span class="pill hold">HOLD</span></td><td>626.27</td><td>35.6</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:26</td><td><span class="pill hold">HOLD</span></td><td>625.81</td><td>35.4</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:23</td><td><span class="pill hold">HOLD</span></td><td>626.51</td><td>35.6</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 15:00</td><td><span class="pill hold">HOLD</span></td><td>694.22</td><td>46.4</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 14:38</td><td><span class="pill hold">HOLD</span></td><td>n/a</td><td>n/a</td><td class='rationale'>No criteria met</td></tr></tbody>
+          </table>
+        </details>
+        <details class="sym" open>
+          <summary>
+            <span class="pill hold">HOLD</span>
+            <strong>MSFT</strong>
+            <span class="muted">close 528.07 · RSI 53.7 · 8 runs</span>
+          </summary>
+          <div class="charts">
+            <div class="chart"><div class="chart-label">Close</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#38bdf8" stroke-width="2" points="32.9,4.0 63.7,22.9 94.6,38.0 125.4,44.0 156.3,35.6 187.1,36.2 218.0,38.1"/><circle cx="218.0" cy="38.1" r="3" fill="#38bdf8"/></svg></div>
+            <div class="chart"><div class="chart-label">RSI</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#a78bfa" stroke-width="2" points="32.9,4.0 63.7,31.0 94.6,40.3 125.4,44.0 156.3,38.8 187.1,39.3 218.0,40.4"/><circle cx="218.0" cy="40.4" r="3" fill="#a78bfa"/></svg></div>
+          </div>
+          <table>
+            <thead><tr><th>Time (UTC)</th><th>Signal</th><th>Close</th><th>RSI</th><th>Rationale</th></tr></thead>
+            <tbody><tr><td class='ts'>2026-10-29 18:34</td><td><span class="pill hold">HOLD</span></td><td>528.07</td><td>53.7</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>528.24</td><td>53.9</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>528.30</td><td>53.9</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:28</td><td><span class="pill hold">HOLD</span></td><td>527.53</td><td>53.3</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:26</td><td><span class="pill hold">HOLD</span></td><td>528.08</td><td>53.7</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:23</td><td><span class="pill hold">HOLD</span></td><td>529.46</td><td>54.8</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 15:00</td><td><span class="pill hold">HOLD</span></td><td>531.19</td><td>57.9</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 14:38</td><td><span class="pill hold">HOLD</span></td><td>n/a</td><td>n/a</td><td class='rationale'>No criteria met</td></tr></tbody>
+          </table>
+        </details>
+        <details class="sym" open>
+          <summary>
+            <span class="pill hold">HOLD</span>
+            <strong>NVDA</strong>
+            <span class="muted">close 212.35 · RSI 41.1 · 8 runs</span>
+          </summary>
+          <div class="charts">
+            <div class="chart"><div class="chart-label">Close</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#38bdf8" stroke-width="2" points="32.9,4.0 63.7,40.1 94.6,42.0 125.4,40.9 156.3,43.9 187.1,43.6 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#38bdf8"/></svg></div>
+            <div class="chart"><div class="chart-label">RSI</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#a78bfa" stroke-width="2" points="32.9,4.0 63.7,30.6 94.6,37.0 125.4,33.5 156.3,43.4 187.1,42.5 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#a78bfa"/></svg></div>
+          </div>
+          <table>
+            <thead><tr><th>Time (UTC)</th><th>Signal</th><th>Close</th><th>RSI</th><th>Rationale</th></tr></thead>
+            <tbody><tr><td class='ts'>2026-10-29 18:34</td><td><span class="pill hold">HOLD</span></td><td>212.35</td><td>41.1</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>212.41</td><td>41.2</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill hold">HOLD</span></td><td>212.37</td><td>41.1</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:28</td><td><span class="pill hold">HOLD</span></td><td>212.77</td><td>41.5</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:26</td><td><span class="pill hold">HOLD</span></td><td>212.63</td><td>41.4</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:23</td><td><span class="pill hold">HOLD</span></td><td>212.89</td><td>41.6</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 15:00</td><td><span class="pill hold">HOLD</span></td><td>217.84</td><td>42.5</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 14:38</td><td><span class="pill hold">HOLD</span></td><td>n/a</td><td>n/a</td><td class='rationale'>No criteria met</td></tr></tbody>
+          </table>
+        </details>
+        <details class="sym" open>
+          <summary>
+            <span class="pill sell">SELL</span>
+            <strong>TCS.NS</strong>
+            <span class="muted">close n/a · RSI 64.6 · 8 runs</span>
+          </summary>
+          <div class="charts">
+            <div class="chart"><div class="chart-label">Close</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#38bdf8" stroke-width="2" points="32.9,44.0 63.7,4.0 94.6,4.0 125.4,4.0"/><circle cx="125.4" cy="4.0" r="3" fill="#38bdf8"/></svg></div>
+            <div class="chart"><div class="chart-label">RSI</div><svg class="spark" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="sparkline"><polyline fill="none" stroke="#a78bfa" stroke-width="2" points="32.9,4.0 63.7,38.3 94.6,38.3 125.4,38.3 156.3,44.0 187.1,44.0 218.0,44.0"/><circle cx="218.0" cy="44.0" r="3" fill="#a78bfa"/></svg></div>
+          </div>
+          <table>
+            <thead><tr><th>Time (UTC)</th><th>Signal</th><th>Close</th><th>RSI</th><th>Rationale</th></tr></thead>
+            <tbody><tr><td class='ts'>2026-10-29 18:34</td><td><span class="pill sell">SELL</span></td><td>n/a</td><td>64.6</td><td class='rationale'>Sell triggers: close &lt; low_52w * 1.02</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill sell">SELL</span></td><td>n/a</td><td>64.6</td><td class='rationale'>Sell triggers: close &lt; low_52w * 1.02</td></tr><tr><td class='ts'>2026-10-29 18:33</td><td><span class="pill sell">SELL</span></td><td>n/a</td><td>64.6</td><td class='rationale'>Sell triggers: close &lt; low_52w * 1.02</td></tr><tr><td class='ts'>2026-10-29 18:28</td><td><span class="pill hold">HOLD</span></td><td>2478.00</td><td>65.9</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:26</td><td><span class="pill hold">HOLD</span></td><td>2478.00</td><td>65.9</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-29 18:23</td><td><span class="pill hold">HOLD</span></td><td>2478.00</td><td>65.9</td><td class='rationale'>No criteria met</td></tr><tr><td class='ts'>2026-10-20 15:00</td><td><span class="pill sell">SELL</span></td><td>2460.90</td><td>73.5</td><td class='rationale'>Sell triggers: rsi &gt; 70</td></tr><tr><td class='ts'>2026-10-20 14:38</td><td><span class="pill sell">SELL</span></td><td>n/a</td><td>n/a</td><td class='rationale'>Sell triggers: rsi &gt; 70</td></tr></tbody>
+          </table>
+        </details>
+
+  <h2>📰 Recent News</h2>
+  <div class="news"><ul><li><a href="https://www.investing.com/news/company-news/orion-group-holdings-wins-250m-in-october-contracts-93CH-4984861" target="_blank" rel="noopener">Orion Group Holdings wins $250M in October contracts</a> <span class="muted">· Investing.com · 2026-10-29T18:12</span></li><li><a href="https://www.investing.com/news/economy-news/analysissoy-rare-earths-and-fuels-how-brazil-vote-impacts-the-global-flow-of-resources-4984862" target="_blank" rel="noopener">Analysis-Soy, rare earths and fuels: how Brazil vote impacts the global flow of resources</a> <span class="muted">· Investing.com · 2026-10-29T18:12</span></li><li><a href="https://www.investing.com/news/economy-news/nasdaq-futures-slide-as-mixed-big-tech-results-test-ai-trade-4981842" target="_blank" rel="noopener">Nasdaq falls as Alphabet set for record loss amid AI spending woes</a> <span class="muted">· Investing.com · 2026-10-29T18:18</span></li><li><a href="https://www.investing.com/news/economy-news/asian-shares-fall-as-alphabet-earnings-miss-drags-wall-st-futures-lower-4981378" target="_blank" rel="noopener">Equities and bond yields dip with AI jitters and economic data in focus</a> <span class="muted">· Investing.com · 2026-10-29T18:18</span></li><li><a href="https://www.investing.com/news/company-news/toast-faces-ftc-lawsuit-over-business-contract-practices-93CH-4984864" target="_blank" rel="noopener">Toast faces FTC lawsuit over business contract practices</a> <span class="muted">· Investing.com · 2026-10-29T18:20</span></li><li><a href="https://www.cnbc.com/2026/10/28/sk-hynix-third-quarter-profit.html" target="_blank" rel="noopener">SK Hynix shares jump 11% after record quarterly profit, outperforming broader market</a> <span class="muted">· CNBC Technology · 2026-10-28T20:04</span></li><li><a href="https://www.cnbc.com/2026/10/28/stellantis-45-billion-cash-drain-turnaround.html" target="_blank" rel="noopener">Stellantis stock rises 13% as automaker&#x27;s turnaround plan, cost cuts gain traction</a> <span class="muted">· CNBC Technology · 2026-10-28T20:23</span></li><li><a href="https://www.cnbc.com/2026/10/28/investors-brace-for-a-hawkish-hold-and-tech-on-tap.html" target="_blank" rel="noopener">Investors brace for a hawkish hold and tech on tap</a> <span class="muted">· CNBC Technology · 2026-10-28T10:54</span></li><li><a href="https://www.cnbc.com/2026/10/28/cnbc-technology-summit-live-updates.html" target="_blank" rel="noopener">CNBC TEC Summit takeaways: How technology executives are navigating enterprise AI adoption, costs and risks</a> <span class="muted">· CNBC Technology · 2026-10-28T22:33</span></li><li><a href="https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html" target="_blank" rel="noopener">Alphabet sinks 10% as it holds 2026 capex unchanged, expects significant increase in 2027</a> <span class="muted">· CNBC Technology · 2026-10-28T22:07</span></li><li><a href="https://www.cnbc.com/2026/10/28/trump-tariffs-corruption-raskin.html" target="_blank" rel="noopener">Trump is using tariffs as a &#x27;tool for grift,&#x27; Raskin says in demand for donor records</a> <span class="muted">· CNBC Technology · 2026-10-28T17:39</span></li><li><a href="https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html" target="_blank" rel="noopener">Microsoft stock jumps 4% as cloud growth drives earnings and revenue beat</a> <span class="muted">· CNBC Technology · 2026-10-29T06:03</span></li><li><a href="https://www.cnbc.com/2026/10/28/apple-mac-touchscreen-launch.html" target="_blank" rel="noopener">Apple brings touch to the Mac, reversing years-old stance on touchscreen laptop</a> <span class="muted">· CNBC Technology · 2026-10-28T22:04</span></li><li><a href="https://www.cnbc.com/2026/10/28/oracle-forecast-growth-2030.html" target="_blank" rel="noopener">Oracle stock pops 11% as long-term revenue forecast and clarity on financing ease debt concerns</a> <span class="muted">· CNBC Technology · 2026-10-28T20:00</span></li><li><a href="https://www.cnbc.com/2026/10/28/neocloud-stocks-drop-after-microsoft-revises-capex-down.html" target="_blank" rel="noopener">CoreWeave and other neocloud stocks drop after Microsoft capex comes in below expectations</a> <span class="muted">· CNBC Technology · 2026-10-29T00:16</span></li><li><a href="https://www.cnbc.com/2026/10/28/anthropic-pbc-what-its-structure-means-for-investors-.html" target="_blank" rel="noopener">Anthropic’s public benefit structure creates unusual risks for IPO investors</a> <span class="muted">· CNBC Technology · 2026-10-28T21:48</span></li><li><a href="https://www.cnbc.com/2026/10/28/apple-touchscreen-macbook-pro-hands-on.html" target="_blank" rel="noopener">Hands-on with Apple&#x27;s first touchscreen laptop: Touch is totally optional</a> <span class="muted">· CNBC Technology · 2026-10-28T22:38</span></li><li><a href="https://www.cnbc.com/2026/10/28/jim-cramer-tech-giants-nation-states.html" target="_blank" rel="noopener">Jim Cramer says these tech giants can weather market turbulence</a> <span class="muted">· CNBC Technology · 2026-10-28T22:26</span></li><li><a href="https://www.cnbc.com/2026/10/28/cramer-sk-hynix-ai-chip-stocks.html" target="_blank" rel="noopener">Jim Cramer sees major implications from SK Hynix&#x27;s home-run quarter</a> <span class="muted">· CNBC Technology · 2026-10-28T23:00</span></li><li><a href="https://www.cnbc.com/2026/10/28/as-waymo-expands-overseas-it-remains-a-niche-cash-burning-business.html" target="_blank" rel="noopener">As Waymo expands overseas, it remains a niche cash-burning business</a> <span class="muted">· CNBC Technology · 2026-10-28T23:53</span></li><li><a href="https://www.cnbc.com/2026/10/29/samsung-electronics-third-quarter-earnings.html" target="_blank" rel="noopener">Samsung Electronics shares slid despite record profit in the third-quarter</a> <span class="muted">· CNBC Technology · 2026-10-29T06:53</span></li><li><a href="https://www.cnbc.com/investingclub/2026/10/28/our-next-steps-for-alphabet-stock-after-earnings-disappoint-at-nearly-every-turn.html" target="_blank" rel="noopener">Our next steps for Alphabet stock after earnings disappoint at nearly every turn</a> <span class="muted">· CNBC Technology · 2026-10-29T01:11</span></li><li><a href="https://www.cnbc.com/2026/10/29/us-employee-engagement-gallup-poll.html" target="_blank" rel="noopener">U.S. worker job engagement hits lowest level since 2011, new Gallup poll finds</a> <span class="muted">· CNBC Technology · 2026-10-29T11:16</span></li><li><a href="https://www.cnbc.com/2026/10/29/alphabet-google-microsoft-msft-shares-today-earnings.html" target="_blank" rel="noopener">Alphabet falls 12%, putting it on course for its biggest ever post-earnings drop</a> <span class="muted">· CNBC Technology · 2026-10-29T16:35</span></li><li><a href="https://www.cnbc.com/2026/10/29/alphabet-google-search-ai-earnings.html" target="_blank" rel="noopener">Alphabet earnings miss reflects first real sign that AI is taking a bite out of search</a> <span class="muted">· CNBC Technology · 2026-10-29T16:25</span></li><li><a href="https://www.cnbc.com/2026/10/29/alphabet-nasdaq-futures-record-post-earnings-loss.html" target="_blank" rel="noopener">Alphabet drags on Nasdaq futures as the stock faces a record post-earnings loss</a> <span class="muted">· CNBC Technology · 2026-10-29T11:41</span></li><li><a href="https://www.cnbc.com/2026/10/29/servicenow-now-earnings-q3-2026.html" target="_blank" rel="noopener">ServiceNow shares plunge 25% after earnings revive AI disruption fears</a> <span class="muted">· CNBC Technology · 2026-10-29T15:54</span></li><li><a href="https://www.cnbc.com/2026/10/29/nvidia-jensen-huang-chinese-intelligence-asset.html" target="_blank" rel="noopener">Nvidia responds to report Jensen Huang was target of Chinese asset, says diversion allegations were &#x27;investigated and debunked&#x27;</a> <span class="muted">· CNBC Technology · 2026-10-29T16:22</span></li><li><a href="https://www.cnbc.com/2026/10/29/amazon-amzn-q3-earnings-report-2026.html" target="_blank" rel="noopener">Amazon to report Q3 earnings after the bell with AI spend under scrutiny</a> <span class="muted">· CNBC Technology · 2026-10-29T16:00</span></li><li><a href="https://www.cnbc.com/investingclub/2026/10/29/cramer-sees-opportunity-amid-tech-turmoil-and-predicts-a-holiday-win-for-fedex.html" target="_blank" rel="noopener">Cramer sees opportunity amid tech turmoil and predicts a holiday win for FedEx</a> <span class="muted">· CNBC Technology · 2026-10-29T16:01</span></li></ul></div>
+
+  <div class="foot">Informational only — not financial advice. Generated from data/signals.sqlite by tools/render_html.py.</div>
+</div>
+</body>
+</html>
